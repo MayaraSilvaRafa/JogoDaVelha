@@ -5,31 +5,67 @@ public class Jogo {
 
 	public void realizarJogada(String simbolo, String posicao, Tabuleiro tabuleiro) {
 
-		for (int i = 0; i < tabuleiro.tab.length; i++) {
-			for (int j = 0; j < tabuleiro.tab.length; j++) {
-				if (posicao.equals(tabuleiro.tab[i][j])) {
-					tabuleiro.tab[i][j] = simbolo;
+		for (int i = 0; i < tabuleiro.tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.tabuleiro.length; j++) {
+				if (posicao.equals(tabuleiro.tabuleiro[i][j])) {
+					tabuleiro.tabuleiro[i][j] = simbolo;
 				}
 			}
 		}
 	}
-	
-	
+
+
 	public boolean verificarPosicao(String posicao, Tabuleiro tabuleiro){
 		for (int i = 1; i < 9; i++) {
 			if (posicao.equals(i)) {
-				if(tabuleiro.tab[0][0]=="X" && tabuleiro.tab[0][0]=="O"){
+				if(tabuleiro.tabuleiro[0][0]=="X" && tabuleiro.tabuleiro[0][0]=="O"){
 					return true;	
+				}	
 			}	
 		}
-			
-	   return false;	
+		return false;
 	}
-		
-		
-	
-	
-	
-	
+
+	public boolean verificarVencedor(Jogador jogador, Tabuleiro tabuleiro){
+		// horizontais//
+		if (tabuleiro.tabuleiro[0][0] == tabuleiro.tabuleiro[0][1] && tabuleiro.tabuleiro[0][1] == tabuleiro.tabuleiro[0][2]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+		}else if (tabuleiro.tabuleiro[1][0] == tabuleiro.tabuleiro[1][1] && tabuleiro.tabuleiro[1][1] == tabuleiro.tabuleiro[1][2]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+		}else if (tabuleiro.tabuleiro[2][0] == tabuleiro.tabuleiro[2][1] && tabuleiro.tabuleiro[2][1] == tabuleiro.tabuleiro[2][2]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+			//verticais//
+		}else if (tabuleiro.tabuleiro[0][0] == tabuleiro.tabuleiro[1][0] && tabuleiro.tabuleiro[1][0] == tabuleiro.tabuleiro[2][0]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+
+		}else if (tabuleiro.tabuleiro[0][1] == tabuleiro.tabuleiro[1][1] && tabuleiro.tabuleiro[1][1] == tabuleiro.tabuleiro[2][1]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+
+		}else if (tabuleiro.tabuleiro[0][2] == tabuleiro.tabuleiro[1][2] && tabuleiro.tabuleiro[1][2] == tabuleiro.tabuleiro[2][2]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+			// diagonais//
+		}else if (tabuleiro.tabuleiro[0][0] == tabuleiro.tabuleiro[1][1] && tabuleiro.tabuleiro[1][1] == tabuleiro.tabuleiro[2][2]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+		}else if (tabuleiro.tabuleiro[0][2] == tabuleiro.tabuleiro[1][1] && tabuleiro.tabuleiro[1][1] == tabuleiro.tabuleiro[2][0]) {
+			System.out.println(jogador.getSimbolo() + "Parabéns, voce venceu! o/ ");
+			return true;
+		}
+		return false;
+	}
 
 }
+
+
+
+
+
+
+
+

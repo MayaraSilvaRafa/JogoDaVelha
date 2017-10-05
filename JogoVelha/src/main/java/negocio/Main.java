@@ -6,7 +6,7 @@ public class Main {
 		Tabuleiro tab = new Tabuleiro();
 		tab.construirTabuleiro();
 		tab.imprimirTabuleiro();
-
+	   
 		
 	}
 
