@@ -3,12 +3,12 @@ package negocio;
 public class Jogo {
 	// administração do jogo//
 
-	public void realizarJogada(String simbolo, String posicao, Tabuleiro tabuleiro) {
+	public void realizarJogada(Jogador jogador, String posicao, Tabuleiro tabuleiro) {
 
 		for (int i = 0; i < tabuleiro.tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro.tabuleiro.length; j++) {
 				if (posicao.equals(tabuleiro.tabuleiro[i][j])) {
-					tabuleiro.tabuleiro[i][j] = simbolo;
+					tabuleiro.tabuleiro[i][j] = jogador.getSimbolo();
 				}
 			}
 		}
@@ -59,9 +59,7 @@ public class Jogo {
 		}
 		return false;
 	}
-
 }
-
 
 
 

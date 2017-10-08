@@ -18,7 +18,7 @@ public class Tabuleiro {
 		tabuleiro[2][1] = "8";
 		tabuleiro[2][2] = "9";
 	}
-
+	
 	public void imprimirTabuleiro(){
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro.length; j++) {
