@@ -26,6 +26,11 @@ public class Jogador {
 		this.simbolo = simbolo;
 	}
 	
+	Jogador(String Simbolo, String Nome){
+		this.simbolo = Simbolo;
+		this.nome = Nome;
+	}
+	
 	
 	
 		

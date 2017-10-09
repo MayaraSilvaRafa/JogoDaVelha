@@ -17,53 +17,58 @@ public class Main {
 		System.out.println("---------------------");
 		System.out.println("Escreva seu nome, você será X");
 		String nome1 = teclado.next();
-		Jogador jogador1 = new Jogador(nome1 + "X");
+		Jogador jogador1 = new Jogador("X", nome1);
 		System.out.println("Escreva seu nome, você será O");
 		String nome2 = teclado.next();
-		Jogador jogador2 = new Jogador(nome2 + "O");
+		Jogador jogador2 = new Jogador("O",nome2);
 
 		Jogo jogo = new Jogo();
 
 		for (int i = 0; i < 9; i++) {
+			Jogador jogador;
+			if(i % 2 == 0){
+				jogador = jogador1;
+			}else{
+				jogador = jogador2;
+			}
 			System.out.println("Qual posição você deseja jogar");
 			String posicao = teclado.next();
 
+			if(jogo.verificarPosicao(posicao, tab) == true){
+				System.out.println("Escolha uma nova posição");
+				String novaPosicao = teclado.next();
+				jogo.realizarJogada(jogador1 , novaPosicao, tab);
+			}else if(jogo.verificarPosicao(posicao, tab) == false){
+				jogo.realizarJogada(jogador1, posicao, tab);
+			}
+			if(jogo.verificarVencedor(jogador1, tab)){
+				break;
+			}
+			tab.imprimirTabuleiro();    
+
+
+		}
+
+		for (int j = 0; i < 9; i++) {
+			System.out.println("Qual posição você deseja jogar");
+			String posicao2 = teclado.next();
+
 			if(i%2==0){
-				if(jogo.verificarPosicao(posicao, tab) == true){
+				if(jogo.verificarPosicao(posicao2, tab) == true){
 					System.out.println("Escolha uma nova posição");
 					String novaPosicao = teclado.next();
-					jogo.realizarJogada(jogador1 , novaPosicao, tab);
-				}else if(jogo.verificarPosicao(posicao, tab) == false){
-					jogo.realizarJogada(jogador1, posicao, tab);
+					jogo.realizarJogada(jogador2 , novaPosicao, tab);
+				}else if(jogo.verificarPosicao(posicao2, tab) == false){
+					jogo.realizarJogada(jogador2, posicao2, tab);
 				}
-				if(jogo.verificarVencedor(jogador1, tab)){
+				if(jogo.verificarVencedor(jogador2, tab)){
 					break;
 				}
 				tab.imprimirTabuleiro();    
 
 
 			}
-
-			for (int j = 0; i < 9; i++) {
-				System.out.println("Qual posição você deseja jogar");
-				String posicao2 = teclado.next();
-
-				if(i%2==0){
-					if(jogo.verificarPosicao(posicao2, tab) == true){
-						System.out.println("Escolha uma nova posição");
-						String novaPosicao = teclado.next();
-						jogo.realizarJogada(jogador2 , novaPosicao, tab);
-					}else if(jogo.verificarPosicao(posicao2, tab) == false){
-						jogo.realizarJogada(jogador2, posicao2, tab);
-					}
-					if(jogo.verificarVencedor(jogador2, tab)){
-						break;
-					}
-					tab.imprimirTabuleiro();    
-
-
-				}
-			}
 		}
 	}
+}
 }
